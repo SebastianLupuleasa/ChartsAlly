@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Header from "./components/header/Header.js";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import ChartFeed from "./components/chartfeed/ChartFeed";
+import Footer from "./components/footer/Footer";
+import About from "./components/about/About";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={[<Header />, <Footer />]} />
+        <Route path="/home" element={[<Header />, <Footer />]} />
+        <Route path="/about" element={[<Header />, <About />, <Footer />]} />
+        <Route
+          path="/charts"
+          element={[<Header />, <ChartFeed />, <Footer />]}
+        />
+        <Route path="/import" element={[<Header />, <Footer />]} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route
+          path="/logout"
+          exact
+          component={() => <Login message="User Logged Out Successfully." />}
+        /> */}
+      </Routes>
+    </Router>
   );
 }
 
