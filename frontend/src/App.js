@@ -6,13 +6,14 @@ import Register from "./components/register/Register";
 import ChartFeed from "./components/chartfeed/ChartFeed";
 import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
+import Home from "./components/home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={[<Header />, <Footer />]} />
+        <Route path="/" element={[<Header />, <Home />, <Footer />]} />
         <Route path="/home" element={[<Header />, <Footer />]} />
         <Route path="/about" element={[<Header />, <About />, <Footer />]} />
         <Route
